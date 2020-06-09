@@ -26,7 +26,7 @@
 
         while (count($left) && count($right)){
 
-            $result[] = $left[0] < $right[0] ? array_shift($left) : array_shift($right);
+            $result[] = $left[0] <= $right[0] ? array_shift($left) : array_shift($right);
         }
 
         return array_merge($result, $left, $right);
