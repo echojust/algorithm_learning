@@ -20,23 +20,23 @@
 function reverse_string(&$s)
 {
 
-    $len = count($s);
+    $len = count($s) - 1;
 
     if(!$len){
         return [];
     }
 
-    for ($i = $len - 1; $i > 0; $i--){
+    for ($i = $len; $i > 0; $i--){
 
         $ex = $s[$i];
 
-        if($len - 1 - $i > $i){
+        if($len - $i > $i){
             break;
         }
 
-        $s[$i] = $s[$len - 1 - $i];
+        $s[$i] = $s[$len - $i];
 
-        $s[$len - 1 - $i] = $ex;
+        $s[$len - $i] = $ex;
 
     }
 
