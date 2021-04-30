@@ -33,7 +33,7 @@
     }
 
 
-    $arr = range(1,20);
+    $arr = range(1,300000);
     shuffle($arr);
 
     echo "before sort:",implode(',', $arr),"\n";
@@ -41,7 +41,8 @@
     $arr = merge_sort($arr);
     $endTime = microtime(1);
     echo "after sort:",implode(',', $arr),"\n";
-    echo "用时：".($endTime - $startTime);
+    echo "用时：".round($endTime - $startTime, 3),"\n";;
+    echo "内存：".memory_get_usage() / (1024*1024);
 
 
 
