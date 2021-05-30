@@ -59,3 +59,26 @@ function middleNode($head) {
     return $cur;
 
 }
+
+/**
+ * 快慢指针法确定中间节点
+ * @param $head
+ * @return mixed
+ */
+function findMidNode($head)
+{
+    //快慢指针确定中间节点
+    $slow = $head;
+    $fast = $head;
+
+    while ($fast->next !== null && $fast->next->next !== null)
+    {
+
+        $slow = $slow->next;
+
+        $fast = $fast->next->next;
+
+    }
+
+    return $slow;
+}
