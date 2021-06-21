@@ -40,10 +40,5 @@ function maxDepth($root) {
 }
 
 
-function height($root)
-{
-
-}
-
 
 
