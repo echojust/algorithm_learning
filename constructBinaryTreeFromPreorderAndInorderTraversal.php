@@ -1,26 +1,35 @@
 <?php
 
-class TreeNode {
+class TreeNode
+{
     public $val = null;
     public $left = null;
     public $right = null;
-    function __construct($val = 0, $left = null, $right = null) {
+
+    function __construct($val = 0, $left = null, $right = null)
+    {
         $this->val = $val;
         $this->left = $left;
         $this->right = $right;
     }
 }
 
-class Solution {
+class Solution
+{
 
     /**
+     * 根据一棵树的前序遍历与中序遍历构造二叉树。
+     *
+     * 注意:
+     * 你可以假设树中没有重复的元素。
      * @param Integer[] $preorder
      * @param Integer[] $inorder
      * @return TreeNode
      */
-    function buildTree($preorder, $inorder) {
+    function buildTree($preorder, $inorder)
+    {
 
-        if($preorder === [] || $inorder === []){
+        if ($preorder === [] || $inorder === []) {
             return null;
         }
 
@@ -35,16 +44,21 @@ class Solution {
     function buildMyTree($preorder, $q, $p, $inorder, $i, $j)
     {
 
-        if($i > $j){
+        if ($i > $j) {
             return null;
         }
 
         //新建根节点
         $root = new TreeNode($preorder[$q]);
 
+        if ($q == $p) {
+            return $root;
+        }
+
+
         $k = $i;
         //确定中序遍历中根节点位置
-        while ($k <= $j && $preorder[$q] !== $inorder[$k]){
+        while ($k <= $j && $preorder[$q] !== $inorder[$k]) {
             $k++;
         }
 
