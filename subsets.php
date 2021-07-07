@@ -12,8 +12,7 @@ class Solution
      * @param Integer[] $nums
      * @return Integer[][]
      */
-    function subsets($nums)
-    {
+    function subsets($nums) {
 
         $this->backTrack($nums, 0, []);
 
@@ -23,12 +22,14 @@ class Solution
     function backTrack($nums, $step, $path)
     {
 
-        if ($step === count($path)) {
+        if($step === count($nums)){
 
             $this->result[] = $path;
 
             return;
         }
+
+
 
         $this->backTrack($nums, $step + 1, $path);
 
@@ -39,5 +40,11 @@ class Solution
         unset($path[count($path) - 1]);
 
 
+
+
     }
 }
+
+$model = new Solution();
+
+var_dump($model->subsets([1, 2, 3]));
