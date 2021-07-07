@@ -30,13 +30,13 @@ class Solution
             return;
         }
 
+        $this->backTrack($nums, $step + 1, $path);
+
         $path[] = $nums[$step];
 
         $this->backTrack($nums, $step + 1, $path);
 
         unset($path[count($path) - 1]);
-
-        $this->backTrack($nums, $step + 1, $path);
 
 
     }
